@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./views/navbar/Navbar";
+import BlogPosts from "./views/blog/posts/BlogPosts";
+import CategoryMenu from "./views/blog/categories/CategoryMenu";
+import CategoryForm from "./views/blog/categories/CategoryForm";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="row">
+        <div className="col-lg-12">
+          <Navbar />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-3">
+          <CategoryMenu />
+        </div>
+        <div className="col-lg-9">
+          <Routes>
+            <Route path="/" element={<BlogPosts />} />
+            <Route path="/category/create" element={<CategoryForm />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

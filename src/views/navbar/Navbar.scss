@@ -1,0 +1,4 @@
+@import '/src/styles/Colors.scss';
+.navbar{
+    background: linear-gradient(to right, white 85%, $color-header-gradient 100%);
+}
