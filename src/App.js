@@ -5,17 +5,17 @@ import CategoryMenu from "./views/blog/categories/CategoryMenu";
 import CategoryForm from "./views/blog/categories/CategoryForm";
 function App() {
   return (
-    <div className="App">
-      <div className="row">
-        <div className="col-lg-12">
+    <div className="container">
+      {/* <div className="row">
+        <div className="col-lg-12"> */}
           <Navbar />
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
       <div className="row">
-        <div className="col-lg-3">
+        <div className="col-sm-3">
           <CategoryMenu />
         </div>
-        <div className="col-lg-9">
+        <div className="col-sm-9">
           <Routes>
             <Route path="/" element={<BlogPosts />} />
             <Route path="/category/create" element={<CategoryForm />} />

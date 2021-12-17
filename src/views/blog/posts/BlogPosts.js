@@ -1,11 +1,21 @@
-import React from 'react'
+import React from "react";
+import SingleBlogPost from "./SingleBlogPost";
+import "./BlogPost.scss";
 
 const BlogPosts = () => {
-    return (
-        <div>
-            BlogPosts
-        </div>
-    )
-}
+  return (
+    <div className="row">
+      <div className="col-md-4 justify-content-center">
+        <SingleBlogPost/>
+      </div>
+      <div className="col-md-4 justify-content-center">
+        <SingleBlogPost/>
+      </div>
+      <div className="col-md-4 justify-content-center">
+        <SingleBlogPost/>
+      </div>
+    </div>
+  );
+};
 
-export default BlogPosts
+export default BlogPosts;
