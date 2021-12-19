@@ -1,7 +1,11 @@
+@import "/src/styles/Colors.scss";
 .LeftSide {
-	.btnKategori {
-		background-color: #e3e7f1;
-		border-radius: 1rem;
-		width: 100%;
-	}
+  background-color: $color-main-blue;
+  min-height: calc(100vh - 84px);
+
+  .category-options-btn {
+    background-color: #e3e7f1;
+    border-radius: 1rem;
+    width: 100%;
+  }
 }

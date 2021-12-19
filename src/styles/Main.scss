@@ -1,4 +1,10 @@
 @import "/src/styles/Colors.scss";
+@import "/src/styles/Fonts.scss";
+
+body{
+  font-family: "Prompt", sans-serif;
+}
+
 .c-white {
   color: $color-main-white;
 }
@@ -7,9 +13,9 @@
 }
 
 h1 {
-    color: $color-main-blue;
-    font-size: 3rem;
-  }
+  color: $color-main-blue;
+  font-size: 3rem;
+}
 h2 {
   color: $color-main-blue;
   font-size: 2rem;

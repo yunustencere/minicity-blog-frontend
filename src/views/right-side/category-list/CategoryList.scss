@@ -1,0 +1,17 @@
+@import "/src/styles/Colors.scss";
+.category-list{
+    .single-category-list-item{
+        border-bottom: 2px solid $color-main-blue ; 
+    }
+    .category-name{
+        color: $color-main-blue,
+    }
+    .edit-button{
+        background-color: $color-main-blue;
+        border-radius: 30px;
+    }
+    .delete-button{
+        background-color: $color-main-red;
+        border-radius: 30px;
+    }
+}
