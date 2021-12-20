@@ -1,7 +1,7 @@
 @import "/src/styles/Colors.scss";
 @import "/src/styles/Fonts.scss";
 
-body{
+body {
   font-family: "Prompt", sans-serif;
 }
 
@@ -25,10 +25,21 @@ h3 {
   font-size: 1.5rem;
 }
 h4 {
-  color: $color-main-white;
+  color: $color-main-blue;
   font-size: 1.2rem;
 }
 h5 {
   color: $color-main-blue;
   font-size: 1rem;
+}
+
+.bg-green {
+  background-color: $color-main-green;
+}
+.bg-white {
+  background-color: $color-main-white;
+}
+
+.br-2 {
+  border-radius: 2rem;
 }

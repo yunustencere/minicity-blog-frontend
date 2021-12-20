@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CATEGORY_FORM, CATEGORY_LIST } from "../../../routes/routes";
+import { CATEGORY_LIST } from "../../../routes/routes";
 import "./CategoryMenu.scss";
 import SingleCategory from "./SingleCategory";
 
@@ -23,7 +23,7 @@ const CategoryMenu = () => {
         <div className="row justify-content-center">
           <div className="col-lg-10 justify-content-center text-center px-4 pt-4">
             <Link to={CATEGORY_LIST}>
-              <button className="btn category-options-btn font--prompt fs--10rem fsw--300 text-dark">
+              <button className="btn br-2 w-100 font--prompt fs--10rem fsw--300 text-dark category-options-btn">
                 Kategori İşlemleri
               </button>
             </Link>

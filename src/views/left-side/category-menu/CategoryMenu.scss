@@ -1,5 +1,8 @@
 @import "/src/styles/Colors.scss";
 .single-category-btn:hover {
-	background-color: #e3e7f1 !important;
-	color: black !important;
+  background-color: $color-main-white !important;
+  color: black !important;
+}
+.category-options-btn {
+  background-color: $color-main-white;
 }

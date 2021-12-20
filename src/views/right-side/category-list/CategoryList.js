@@ -1,6 +1,8 @@
 import React from "react";
 import SingleCategoryListItem from "./SinleCategoryListItem";
 import "./CategoryList.scss";
+import { Link } from "react-router-dom";
+import { CATEGORY_FORM } from "../../../routes/routes";
 
 const CategoryList = () => {
   return (
@@ -14,6 +16,15 @@ const CategoryList = () => {
         <SingleCategoryListItem />
         <SingleCategoryListItem />
         <SingleCategoryListItem />
+        <div className="row g-0 pt-5">
+          <div className="col-lg-12">
+            <Link to={CATEGORY_FORM}>
+              <button className="btn bg-green c-blue px-4 font--prompt fs--09rem fsw--500 br-2">
+                Add New Category +
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

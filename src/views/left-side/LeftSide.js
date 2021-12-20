@@ -4,7 +4,7 @@ import "./LeftSide.scss";
 const LeftSide = () => {
   return (
     <div className="col-lg-3 LeftSide">
-      <div className="row no-gutters">
+      <div className="row g-0">
         <div className="col-lg-12">
           <CategoryMenu />
         </div>

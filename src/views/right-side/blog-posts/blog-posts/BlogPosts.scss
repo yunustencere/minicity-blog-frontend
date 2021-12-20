@@ -1,8 +1,11 @@
+@import "/src/styles/Colors.scss";
 .single-blog-post {
   img {
     border-radius: 10%;
     object-fit: cover;
-    height: 118px;
+    height: 190px;
+    width: 190px;
+    border:1px solid $color-main-blue
   }
   p {
     text-align: justify;
