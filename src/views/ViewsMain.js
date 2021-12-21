@@ -1,4 +1,3 @@
-import React from "react";
 import LeftSide from "./left-side/LeftSide";
 import RightSide from "./right-side/RightSide";
 

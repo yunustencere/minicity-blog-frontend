@@ -1,4 +1,3 @@
-import React from "react";
 import CategoryMenu from "./category-menu/CategoryMenu";
 import "./LeftSide.scss";
 const LeftSide = () => {

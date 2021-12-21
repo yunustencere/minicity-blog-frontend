@@ -1,4 +1,3 @@
-import React from "react";
 import SingleBlogPost from "./SingleBlogPost";
 import "./BlogPosts.scss";
 import { BLOG_POST_FORM } from "../../../../routes/routes";

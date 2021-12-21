@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { CATEGORY_LIST } from "../../../routes/routes";
 import "./CategoryMenu.scss";

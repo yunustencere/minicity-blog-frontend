@@ -1,4 +1,3 @@
-import React from "react";
 import SingleCategoryListItem from "./SinleCategoryListItem";
 import "./CategoryList.scss";
 import { Link } from "react-router-dom";

@@ -1,5 +1,3 @@
-import React from "react";
-
 const SingleBlogPost = () => {
   return (
     <div className="row g-0 single-blog-post">

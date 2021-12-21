@@ -1,5 +1,3 @@
-import React from "react";
-
 const SingleCategoryListItem = () => {
   return (
     <div className="row single-category-list-item">

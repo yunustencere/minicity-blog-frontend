@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { BLOG_POSTS, BLOG_POST_FORM, CATEGORY_FORM, CATEGORY_LIST } from "../../routes/routes";
 import BlogPostForm from "./blog-posts/blog-post-form/BlogPostForm";
