@@ -2,8 +2,11 @@ import SingleBlogPost from "./SingleBlogPost";
 import "./BlogPosts.scss";
 import { BLOG_POST_FORM } from "../../../../routes/routes";
 import { Link } from "react-router-dom";
+import { blogPostContext } from "context/useBlogPostData";
+import { useContext } from "react";
 
 const BlogPosts = () => {
+  const { blogPostData } = useContext(blogPostContext);
   return (
     <>
       <div className="row g-0 justify-content-center px-5 my-5">
@@ -14,15 +17,12 @@ const BlogPosts = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-md-4 px-5 justify-content-center">
-          <SingleBlogPost />
-        </div>
-        <div className="col-md-4 px-5 justify-content-center">
-          <SingleBlogPost />
-        </div>
-        <div className="col-md-4 px-5 justify-content-center">
-          <SingleBlogPost />
-        </div>
+        {blogPostData.blog_posts.map((post) => (
+          <div key={post.id} className="col-md-4 px-5 justify-content-center">
+            <SingleBlogPost post={post} />
+          </div>
+        ))}
+
       </div>
     </>
   );

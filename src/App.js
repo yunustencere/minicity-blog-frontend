@@ -1,21 +1,18 @@
-import Navbar from "./views/navbar/Navbar";
+import { BlogPostProvider } from "context/useBlogPostData";
 import ViewsMain from "./views/ViewsMain";
 
 const App = () => {
   return (
-    <div className="container-fluid p-0 m-0">
-      <div className="row g-0">
-        <div className="col-lg-12 p-0">
-          <Navbar />
+    <BlogPostProvider>
+      <div className="container-fluid p-0 m-0">
+        <div className="row g-0">
+          <div className="col-lg-12 p-0">
+            <ViewsMain />
+          </div>
         </div>
       </div>
-      <div className="row g-0">
-        <div className="col-lg-12 p-0">
-          <ViewsMain />
-        </div>
-      </div>
-    </div>
+    </BlogPostProvider>
   );
-}
+};
 
 export default App;

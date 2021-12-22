@@ -12,5 +12,9 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": { "react/prop-types": ["off"], "no-unused-vars": "warn" },
+  "globals": {
+    "React": "readonly",
+    "process": "readonly"
+  }
 }

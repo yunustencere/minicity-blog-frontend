@@ -1,8 +1,12 @@
+import { blogPostContext } from "context/useBlogPostData";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CATEGORY_LIST } from "../../../routes/routes";
 import "./CategoryForm.scss";
 
 const CategoryForm = () => {
+  const { createCategory } = useContext(blogPostContext);
+  const [categoryName, setCategoryName] = useState("");
   return (
     <div className="row category-list">
       <div className="col-lg-12">
@@ -22,7 +26,13 @@ const CategoryForm = () => {
             </div>
             <div className="row g-0">
               <div className="col-lg-12">
-                <input className="w-100" type="text" id="category-form-title" />
+                <input
+                  value={categoryName}
+                  onChange={(e) => setCategoryName(e.target.value)}
+                  className="w-100"
+                  type="text"
+                  id="category-form-title"
+                />
               </div>
             </div>
 
@@ -33,7 +43,9 @@ const CategoryForm = () => {
                 </Link>
               </div>
               <div className="col-lg-6">
-                <button className="btn bg-green c-blue w-100 br-2 mx-1 ">Add +</button>
+                <button onClick={() => createCategory(categoryName)} className="btn bg-green c-blue w-100 br-2 mx-1 ">
+                  Add +
+                </button>
               </div>
             </div>
           </div>
