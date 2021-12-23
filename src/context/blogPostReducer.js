@@ -4,6 +4,14 @@ export const blogPostReducer = (state, action) => {
       return {
         ...action.newBlogPostData,
       };
+
+      case "setSelectedCategory":
+        return {
+          ...state,
+          selectedCategory: action.id,
+          filtered_blog_posts: state.blog_posts.filter(post => post.blog_post_category_id === action.id),
+        };
+
     case "createCategory":
       return {
         ...state,

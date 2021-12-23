@@ -17,7 +17,7 @@ const BlogPosts = () => {
         </div>
       </div>
       <div className="row">
-        {blogPostData.blog_posts.map((post) => (
+        {blogPostData.filtered_blog_posts.map((post) => (
           <div key={post.id} className="col-md-4 px-5 justify-content-center">
             <SingleBlogPost post={post} />
           </div>

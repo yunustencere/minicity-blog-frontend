@@ -5,6 +5,7 @@ import axios from "axios";
 let initialState = {
   blog_posts: [],
   blog_post_categories: [],
+  filtered_blog_posts: [],
 };
 
 export const blogPostContext = createContext();
@@ -22,6 +23,10 @@ export const BlogPostProvider = ({ children }) => {
     dispatch({ type: "clearInputs", initialState });
   };
 
+  const setSelectedCategory = (id) => {
+    dispatch({ type: "setSelectedCategory", id });
+  };
+
   //AXIOS
 
   const fetchBlogPostData = () => {
@@ -33,9 +38,12 @@ export const BlogPostProvider = ({ children }) => {
         if (res.data.result === "success") {
           dispatch({
             type: "setBlogPostData",
-            newBlogPostData: { blog_posts: res.data.blog_posts, blog_post_categories: res.data.blog_post_categories },
+            newBlogPostData: {
+              blog_posts: res.data.blog_posts,
+              blog_post_categories: res.data.blog_post_categories,
+              filtered_blog_posts: res.data.blog_posts,
+            },
           });
-          // clearInputs();
         }
         // showLoading(false);
       })
@@ -48,7 +56,7 @@ export const BlogPostProvider = ({ children }) => {
     const CREATE_POST_URL = `${process.env.REACT_APP_BLOG_API}/blog-post`;
     const postPayload = new FormData();
     postPayload.append("title", payload.title);
-    postPayload.append("file", payload.file);
+    if(payload.file) postPayload.append("file", payload.file);
     postPayload.append("text", payload.text);
     postPayload.append("blog_post_category_id", payload.blog_post_category_id);
     // showLoading(true);
@@ -60,25 +68,11 @@ export const BlogPostProvider = ({ children }) => {
       })
       .then((res) => {
         console.log(res.data);
-        if (res.data.result === "success") {
-          // changeStreams({ streamData: res.data.streams });
-          // clearInputs();
-        }
+        // if (res.data.result === "success") {
+        // }
         // showLoading(false);
       })
-      .catch(() => {
-        // toastError("Hata", err.response.data.message);
-        // dispatchModal({
-        //   type: "changeModal",
-        //   newModal: {
-        //     alertModal: {
-        //       type: 4,
-        //       text: err.response.data.message,
-        //     },
-        //   },
-        // });
-        // showLoading(false);
-      });
+      .catch(() => {});
   };
 
   const createCategory = (categoryName) => {
@@ -134,6 +128,9 @@ export const BlogPostProvider = ({ children }) => {
     <blogPostContext.Provider
       value={{
         blogPostData,
+
+        setSelectedCategory,
+
         createPost,
         createCategory,
         updateCategory,
