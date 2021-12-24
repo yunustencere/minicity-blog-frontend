@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 let initialState = {
   blog_posts: [],
   blog_post_categories: [],
-  filtered_blog_posts: [],
+  // filtered_blog_posts: [],
 };
 
 export const blogPostContext = createContext();
@@ -29,8 +29,12 @@ export const BlogPostProvider = ({ children }) => {
     dispatch({ type: "setSelectedCategory", id });
     navigate(BLOG_POSTS);
   };
-  const clearSelectedCategory = () => {
+  const showAll = () => {
     dispatch({ type: "clearSelectedCategory" });
+    navigate(BLOG_POSTS);
+  };
+  const addNewBlogPost = (blog_post) => {
+    dispatch({ type: "addNewBlogPost", blog_post })
     navigate(BLOG_POSTS);
   };
 
@@ -49,7 +53,7 @@ export const BlogPostProvider = ({ children }) => {
             newBlogPostData: {
               blog_posts: res.data.blog_posts,
               blog_post_categories: res.data.blog_post_categories,
-              filtered_blog_posts: res.data.blog_posts,
+              // filtered_blog_posts: res.data.blog_posts,
             },
           });
         }
@@ -75,7 +79,11 @@ export const BlogPostProvider = ({ children }) => {
             "Content-Type": "multipart/form-data",
           },
         })
-        .then(() => {
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.result === "success") {
+            addNewBlogPost(res.data.blog_post);
+          }
           setIsLoading(false);
           resolve();
         })
@@ -177,7 +185,7 @@ export const BlogPostProvider = ({ children }) => {
         isLoading,
 
         setSelectedCategory,
-        clearSelectedCategory,
+        showAll,
 
         createPost,
         createCategory,

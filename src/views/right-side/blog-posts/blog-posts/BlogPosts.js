@@ -17,12 +17,13 @@ const BlogPosts = () => {
         </div>
       </div>
       <div className="row">
-        {blogPostData.filtered_blog_posts.map((post) => (
-          <div key={post.id} className="col-md-4 px-5 justify-content-center">
-            <SingleBlogPost post={post} />
-          </div>
-        ))}
-
+        {blogPostData.blog_posts
+          .filter((post) => !blogPostData.selectedCategory || (post.blog_post_category_id === blogPostData.selectedCategory))
+          .map((post) => (
+            <div key={post.id} className="col-md-4 px-5 justify-content-center">
+              <SingleBlogPost post={post} />
+            </div>
+          ))}
       </div>
     </>
   );
