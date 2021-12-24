@@ -1,4 +1,5 @@
 import { BlogPostProvider } from "context/useBlogPostData";
+import { ToastContainer } from "react-toastify";
 import ViewsMain from "./views/ViewsMain";
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </BlogPostProvider>
   );
 };

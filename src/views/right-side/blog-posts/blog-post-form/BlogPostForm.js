@@ -1,9 +1,10 @@
 import { blogPostContext } from "context/useBlogPostData";
 import { useContext, useRef, useState } from "react";
+import Loading from "views/shared/loading/Loading";
 import "./BlogPostForm.scss";
 
 const BlogPostForm = () => {
-  const { blogPostData, createPost } = useContext(blogPostContext);
+  const { blogPostData, isLoading, createPost } = useContext(blogPostContext);
   const fileInputRef = useRef(null);
   const [state, setState] = useState({
     title: "",
@@ -93,17 +94,24 @@ const BlogPostForm = () => {
                 >
                   <option value={""}>select</option>
                   {blogPostData.blog_post_categories.map((category) => (
-                    <option key={category.id} value={category.id}>{category.name}</option>
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
                   ))}
                 </select>
               </div>
             </div>
             <div className="row g-0 pt-5">
-              <div className="col-lg-12">
-                <button onClick={()=> createPost(state)} className="btn bg-green c-blue px-4 font--prompt fs--09rem fsw--500 blog-post-create-btn">
+              <div className="col-lg-7">
+                <button
+                  className="btn bg-green br-2 c-blue px-4 font--prompt fs--09rem fsw--500 blog-post-create-btn"
+                  onClick={() => createPost(state)}
+                  disabled={isLoading}
+                >
                   Add New Blog Post +
                 </button>
               </div>
+              <div className="col-lg-5 my-auto">{isLoading && <Loading />}</div>
             </div>
           </div>
         </div>

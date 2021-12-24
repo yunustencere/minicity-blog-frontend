@@ -12,7 +12,7 @@ const BlogPosts = () => {
       <div className="row g-0 justify-content-center px-5 my-5">
         <div className="col-lg-12 d-flex justify-content-end">
           <Link to={BLOG_POST_FORM}>
-            <button className="btn bg-green c-blue font--prompt fs--09rem fsw--500">Add New Content +</button>
+            <button className="btn bg-green c-blue br-2 font--prompt fs--09rem fsw--500">Add New Content +</button>
           </Link>
         </div>
       </div>

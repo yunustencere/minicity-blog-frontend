@@ -7,7 +7,7 @@ const SingleCategory = ({ category }) => {
   return (
     <button
       onClick={() => setSelectedCategory(category.id)}
-      className={`btn btn-block ${blogPostData.selectedCategory === category.id ? "active-btn" : ""} w-100 bg-transparent font--prompt fs--12rem fsw--400 text-white py-3 single-category-btn border-bottom`}
+      className={`btn btn-block ${blogPostData.selectedCategory === category.id ? "active-btn" : ""} w-100 bg-transparent font--prompt fs--12rem fsw--400 c-white py-3 single-category-btn`}
     >
       {category.name}
     </button>

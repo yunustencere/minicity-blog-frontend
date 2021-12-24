@@ -7,9 +7,8 @@
   background-color: $color-main-white !important;
   color: black !important;
 }
-.single-category-btn:hover {
-  background-color: $color-main-white !important;
-  color: black !important;
+.single-category-btn{
+  border-bottom: 1px solid $color-main-white ; 
 }
 .category-options-btn {
   background-color: $color-main-white;

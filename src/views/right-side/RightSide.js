@@ -8,7 +8,7 @@ import "./RightSide.scss";
 
 const RightSide = () => {
   return (
-    <div className="col-lg-9 RightSide">
+    <div className="col-lg-10 RightSide">
       <div className="row g-0">
         <div className="col-lg-12 bgColor h-100">
           <div className="row g-0 justify-content-center">
