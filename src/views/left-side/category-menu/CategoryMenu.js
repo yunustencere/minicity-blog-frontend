@@ -1,7 +1,7 @@
 import { blogPostContext } from "context/useBlogPostData";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { BLOG_POSTS, CATEGORY_LIST } from "../../../routes/routes";
+import { CATEGORY_LIST } from "../../../routes/routes";
 import "./CategoryMenu.scss";
 import SingleCategory from "./SingleCategory";
 
