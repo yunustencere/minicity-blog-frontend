@@ -6,7 +6,7 @@ import "./CategoryMenu.scss";
 import SingleCategory from "./SingleCategory";
 
 const CategoryMenu = () => {
-  const { blogPostData, showAll } = useContext(blogPostContext);
+  const { blogPostData, showAll, showUncategorized } = useContext(blogPostContext);
   return (
     <div className="row justify-content-center category-menu py-4">
       <div className="col-sm-12 p-0">
@@ -24,11 +24,22 @@ const CategoryMenu = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-10 justify-content-center text-center px-4 pt-4">
-            <Link to={BLOG_POSTS}>
-              <button onClick={()=>showAll()} className="btn br-2 w-100 font--prompt fs--10rem fsw--300 text-dark category-options-btn">
-                Show All
-              </button>
-            </Link>
+            <button
+              onClick={() => showUncategorized()}
+              className="btn br-2 w-100 font--prompt fs--10rem fsw--300 text-dark category-options-btn"
+            >
+              Uncategorized
+            </button>
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-lg-10 justify-content-center text-center px-4 pt-4">
+            <button
+              onClick={() => showAll()}
+              className="btn br-2 w-100 font--prompt fs--10rem fsw--300 text-dark category-options-btn"
+            >
+              All
+            </button>
           </div>
         </div>
         <div className="row justify-content-center">

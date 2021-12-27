@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 let initialState = {
   blog_posts: [],
   blog_post_categories: [],
-  // filtered_blog_posts: [],
 };
 
 export const blogPostContext = createContext();
@@ -23,22 +22,43 @@ export const BlogPostProvider = ({ children }) => {
     fetchBlogPostData();
   }, []);
 
+  //GET
+
+  const getFilteredBlogPosts = () => {
+    return [];
+    // const posts = blogPostData.blog_posts;
+    // switch (blogPostData.selectedCategory) {
+    //   case "all":
+    //     return posts;
+    //   case null:
+    //     return posts.filter((post) => !post.blog_post_category_id);
+    //   case Number.isNumber(posts):
+    //     return posts.filter((post) => post.blog_post_category_id === blogPostData.selectedCategory);
+    //   default:
+    //     return posts;
+    // }
+  };
+
   // DISPATCH
 
-  const setSelectedCategory = (id) => {
-    dispatch({ type: "setSelectedCategory", id });
+  const setSelectedCategory = (selectedCategory) => {
+    dispatch({ type: "setSelectedCategory", selectedCategory });
+    navigate(BLOG_POSTS);
+  };
+  const showUncategorized = () => {
+    setSelectedCategory(null);
     navigate(BLOG_POSTS);
   };
   const showAll = () => {
-    dispatch({ type: "clearSelectedCategory" });
+    setSelectedCategory("all");
     navigate(BLOG_POSTS);
   };
   const addNewBlogPost = (blog_post) => {
-    dispatch({ type: "addNewBlogPost", blog_post })
+    dispatch({ type: "addNewBlogPost", blog_post });
     navigate(BLOG_POSTS);
   };
 
-  //AXIOS
+  //FETCH
 
   const fetchBlogPostData = () => {
     const POST_URL = `${process.env.REACT_APP_BLOG_API}/blog-post`;
@@ -135,7 +155,7 @@ export const BlogPostProvider = ({ children }) => {
           console.log(res.data);
           if (res.data.result === "success") {
             dispatch({ type: "updateCategory", categoryId, newName });
-            setState({ isEditingModeOn: false, name: newName });
+            setState({ isEditingModeOn: false, newName });
           }
           setIsLoading(false);
           resolve();
@@ -184,7 +204,10 @@ export const BlogPostProvider = ({ children }) => {
         blogPostData,
         isLoading,
 
+        getFilteredBlogPosts,
+
         setSelectedCategory,
+        showUncategorized,
         showAll,
 
         createPost,

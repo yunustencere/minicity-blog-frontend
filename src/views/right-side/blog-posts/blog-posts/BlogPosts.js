@@ -6,7 +6,7 @@ import { blogPostContext } from "context/useBlogPostData";
 import { useContext } from "react";
 
 const BlogPosts = () => {
-  const { blogPostData } = useContext(blogPostContext);
+  const { getFilteredBlogPosts } = useContext(blogPostContext);
   return (
     <>
       <div className="row g-0 justify-content-center px-5 my-5">
@@ -17,8 +17,7 @@ const BlogPosts = () => {
         </div>
       </div>
       <div className="row">
-        {blogPostData.blog_posts
-          .filter((post) => !blogPostData.selectedCategory || (post.blog_post_category_id === blogPostData.selectedCategory))
+        {getFilteredBlogPosts()
           .map((post) => (
             <div key={post.id} className="col-md-4 px-5 justify-content-center">
               <SingleBlogPost post={post} />

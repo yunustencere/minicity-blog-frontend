@@ -1,4 +1,4 @@
-import SingleCategoryListItem from "./SinleCategoryListItem";
+import SingleCategoryListItem from "./SingleCategoryListItem";
 import "./CategoryList.scss";
 import { Link } from "react-router-dom";
 import { CATEGORY_FORM } from "../../../routes/routes";

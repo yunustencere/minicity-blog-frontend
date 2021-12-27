@@ -17,7 +17,7 @@ export const blogPostReducer = (state, action) => {
     case "setSelectedCategory":
       return {
         ...state,
-        selectedCategory: action.id,
+        selectedCategory: action.selectedCategory,
         // filtered_blog_posts: state.blog_posts.filter((post) => post.blog_post_category_id === action.id),
       };
 
@@ -46,12 +46,18 @@ export const blogPostReducer = (state, action) => {
         }),
       };
 
-    case "deleteCategory":
-      return {
-        ...state,
-        blog_post_categories: state.blog_post_categories.filter((category) => action.categoryId !== category.id),
-      };
+      case "deleteCategory":
+        return {
+          ...state,
+          blog_post_categories: state.blog_post_categories.filter((category) => action.categoryId !== category.id),
+        };
 
+        case "showUncategorizedPosts":
+          return {
+            ...state,
+            blog_post_categories: state.blog_post_categories.filter((category) => action.categoryId !== category.id),
+          };
+      
     default:
       return;
   }
