@@ -25,18 +25,18 @@ export const BlogPostProvider = ({ children }) => {
   //GET
 
   const getFilteredBlogPosts = () => {
-    return [];
-    // const posts = blogPostData.blog_posts;
-    // switch (blogPostData.selectedCategory) {
-    //   case "all":
-    //     return posts;
-    //   case null:
-    //     return posts.filter((post) => !post.blog_post_category_id);
-    //   case Number.isNumber(posts):
-    //     return posts.filter((post) => post.blog_post_category_id === blogPostData.selectedCategory);
-    //   default:
-    //     return posts;
-    // }
+    // return [];
+    const posts = blogPostData.blog_posts;
+    switch (blogPostData.selectedCategory) {
+      case "all":
+        return posts;
+      case null:
+        return posts.filter((post) => !post.blog_post_category_id);
+      case Number.isInteger(posts):
+        return posts.filter((post) => post.blog_post_category_id === blogPostData.selectedCategory);
+      default:
+        return posts;
+    }
   };
 
   // DISPATCH
